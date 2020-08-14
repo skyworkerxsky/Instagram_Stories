@@ -14,7 +14,7 @@ struct Attributes {
     let borderWidth:CGFloat = 2.0
     let borderColor = UIColor.white
     let backgroundColor = IGTheme.redOrange
-    let size = CGSize(width:68,height:68)
+    let size = CGSize(width: 90, height: 90)
 }
 
 class IGRoundedView: UIView {
@@ -42,9 +42,9 @@ class IGRoundedView: UIView {
     }
     override func layoutSubviews() {
         super.layoutSubviews()
-        layer.cornerRadius = frame.height/2
-        imageView.frame = CGRect(x:1,y:1,width:(attributes.size.width)-2,height:attributes.size.height-2)
-        imageView.layer.cornerRadius = imageView.frame.height/2
+//        layer.cornerRadius = 8
+        imageView.frame = CGRect(x: 1 , y: 1, width: (attributes.size.width) - 2, height: attributes.size.height - 2)
+//        imageView.layer.cornerRadius = 8
     }
 }
 

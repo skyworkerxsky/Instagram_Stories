@@ -94,6 +94,6 @@ UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView,
                         layout collectionViewLayout: UICollectionViewLayout,
                         sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return indexPath.row == 0 ? CGSize(width: 100, height: 100) : CGSize(width: 80, height: 100)
+        return indexPath.row == 0 ? CGSize(width: 100, height: 100) : CGSize(width: 200, height: 200)
     }
 }
