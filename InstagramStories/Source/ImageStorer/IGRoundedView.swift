@@ -8,24 +8,20 @@
 
 import Foundation
 import UIKit
+import YogaKit
 
-//@note:Recommended Size: CGSize(width:70,height:70)
 struct Attributes {
-  let borderWidth:CGFloat = 2.0
+  let borderWidth: CGFloat = 2.0
   let borderColor = UIColor.white
   let backgroundColor = IGTheme.redOrange
-  let size = CGSize(width: 90, height: 90)
 }
 
 class IGRoundedView: UIView {
   
-  private var attributes:Attributes = Attributes()
+  private var attributes: Attributes = Attributes()
   
   lazy var imageView: UIImageView = {
     let iv = UIImageView()
-    iv.layer.borderWidth = (attributes.borderWidth)
-    iv.layer.borderColor = attributes.borderColor.cgColor
-    iv.clipsToBounds = true
     return iv
   }()
   
@@ -36,28 +32,39 @@ class IGRoundedView: UIView {
     addSubview(imageView)
   }
   
-  required init?(coder aDecoder: NSCoder) {
-    super.init(coder: aDecoder)
-    clipsToBounds = true
-    backgroundColor = attributes.backgroundColor
-    addSubview(imageView)
+  required init?(coder: NSCoder) {
+    fatalError("init(coder:) has not been implemented")
   }
+  
   override func layoutSubviews() {
     super.layoutSubviews()
-    //        layer.cornerRadius = 8
-    imageView.frame = CGRect(x: 1 , y: 1, width: (attributes.size.width) - 2, height: attributes.size.height - 2)
-    //        imageView.layer.cornerRadius = 8
+    
+    let container = bounds.size
+    
+    configureLayout { layout in
+      layout.isEnabled = true
+      layout.width = YGValue(container.width)
+      layout.height = YGValue(container.height)
+    }
+    
+    imageView.configureLayout { layout in
+      layout.isEnabled = true
+      layout.width = 100%
+      layout.height = 100%
+    }
+    
+    yoga.applyLayout(preservingOrigin: true)
   }
 }
 
-extension IGRoundedView {
-  func enableBorder(enabled: Bool = true) {
-    if enabled {
-      layer.borderColor = UIColor.clear.cgColor
-      layer.borderWidth = 0
-    }else {
-      layer.borderColor = attributes.borderColor.cgColor
-      layer.borderWidth = attributes.borderWidth
-    }
-  }
-}
+//extension IGRoundedView {
+//  func enableBorder(enabled: Bool = true) {
+//    if enabled {
+//      layer.borderColor = UIColor.clear.cgColor
+//      layer.borderWidth = 0
+//    } else {
+//      layer.borderColor = attributes.borderColor.cgColor
+//      layer.borderWidth = attributes.borderWidth
+//    }
+//  }
+//}

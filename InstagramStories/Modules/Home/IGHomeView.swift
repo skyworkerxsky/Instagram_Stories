@@ -16,7 +16,7 @@ class IGHomeView: UIView {
   lazy var layout: UICollectionViewFlowLayout = {
     let flowLayout = UICollectionViewFlowLayout()
     flowLayout.scrollDirection = .horizontal
-    flowLayout.itemSize = CGSize(width: 100, height: 100)
+//    flowLayout.itemSize = CGSize(width: 200, height: 200)
     return flowLayout
   }()
   
@@ -60,7 +60,7 @@ class IGHomeView: UIView {
     collectionView.configureLayout { layout in
       layout.isEnabled = true
       layout.width = 100%
-      layout.height = 200
+      layout.height = 122
     }
     
     yoga.applyLayout(preservingOrigin: true)

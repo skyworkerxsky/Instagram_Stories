@@ -41,6 +41,7 @@ final class IGHomeController: UIViewController {
   }
   
   //MARK: - Private functions
+  
   @objc private func clearImageCache() {
     IGCache.shared.removeAllObjects()
     IGStories.removeAllVideoFilesFromCache()
@@ -59,6 +60,7 @@ final class IGHomeController: UIViewController {
 }
 
 //MARK: - Extension|UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout
+
 extension IGHomeController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
   func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
     return viewModel.numberOfItemsInSection(section)
@@ -83,6 +85,6 @@ extension IGHomeController: UICollectionViewDelegate, UICollectionViewDataSource
   func collectionView(_ collectionView: UICollectionView,
                       layout collectionViewLayout: UICollectionViewLayout,
                       sizeForItemAt indexPath: IndexPath) -> CGSize {
-    return CGSize(width: 200, height: 200)
+    return CGSize(width: 90, height: 90) // size cell
   }
 }

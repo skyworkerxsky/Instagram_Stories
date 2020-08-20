@@ -8,7 +8,7 @@ typealias SetImageRequester = (IGResult<Bool,Error>) -> Void
 
 extension UIImageView: IGImageRequestable {
     func setImage(url: String,
-                  style: ImageStyle = .rounded,
+                  style: ImageStyle = .squared,
                   completion: SetImageRequester? = nil) {
         image = nil
 
